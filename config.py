@@ -20,3 +20,8 @@ CSRF_SESSION_KEY = "secret"
 
 # Secret key for signing cookies
 SECRET_KEY = "secret"
+
+############### Azureの設定 ####################
+FACE_API_KEY = 'c47c7f33d73a4d1b8a8dff1f679e6b2f'
+SEARCH_API_KEY = 'DDD9AA49C29F93B31225E7B45BC4150E'
+################################################
