@@ -2,8 +2,11 @@
 {% block content %}
 <div class="container">
     <div class="row center">
-        <form action="">
-            <input id="search-box" placeholder="芸能人や有名人の名前を入力！"/>
+        <form action="/search" method="get">
+            <input id="search-box" name="search-text" placeholder="芸能人や有名人の名前を入力！"/>
+            {% for item in urls %}
+                <li><img src="{{ item }}"/></li>
+            {% endfor %}
         </form>
     </div>
     <br><br>
