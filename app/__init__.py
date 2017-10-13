@@ -95,15 +95,15 @@ def search_fujiwara():
             ]
 
     datas = [
-                # 'https://cdn.mdpr.jp/photo/images/5e/fb5/w700c-ez_a3936914fbbf63b7c25a167e6d86d4439aad25000544dde4.jpg',
                 'http://www.takumi-jun.com/contents/upload-images/201458221929.jpg',
-                # 'http://www.子育て広場.com/wp-content/uploads/2014/01/107de2562eb1b8f6a5d7d3838945f05e.jpg',
                 'http://www.isetan-photo.co.jp/sp/shomei/images/recruit_slide04.jpg',
                 'http://asakusa-link.com/wp-content/uploads/2016/03/74e3b8ee00cb35feef211ebdc8c76796_s.jpg',
                 'http://img01.osakazine.net/usr/s/t/u/studiolib/bst_24135dd.jpg',
                 'https://ranking.xgoo.jp/tool/images/column/2016/06/0610_11re.jpg',
                 'https://i2.wp.com/nekotopi.com/wp-content/uploads/2014/10/cm-abe.jpg',
                 'https://contents.oricon.co.jp/photo/img/0/259/detail/img660/0_84691200_1340881653.jpg',
+
+                'http://i2.w.yun.hjfile.cn/slide/201312/21983267836.jpg',
             ]
 
     queryFaceIds = {}
@@ -168,9 +168,7 @@ def search_category_fool(faceType):
             }
 
     datas = [
-                # 'https://cdn.mdpr.jp/photo/images/5e/fb5/w700c-ez_a3936914fbbf63b7c25a167e6d86d4439aad25000544dde4.jpg',
                 'http://www.takumi-jun.com/contents/upload-images/201458221929.jpg',
-                # 'http://www.子育て広場.com/wp-content/uploads/2014/01/107de2562eb1b8f6a5d7d3838945f05e.jpg',
                 'http://www.isetan-photo.co.jp/sp/shomei/images/recruit_slide04.jpg',
                 'http://asakusa-link.com/wp-content/uploads/2016/03/74e3b8ee00cb35feef211ebdc8c76796_s.jpg',
                 'http://img01.osakazine.net/usr/s/t/u/studiolib/bst_24135dd.jpg',
@@ -182,6 +180,8 @@ def search_category_fool(faceType):
                 'http://stat.news.ameba.jp/news_images/20151116/07/70/VD/j/o03820434ayanogo.jpg',
                 'http://image.space.rakuten.co.jp/d/strg/ctrl/9/4fa00c525815bfc2044ad03a63de4a8cfc57d5a9.66.2.9.2.jpeg',
                 'http://i2.w.yun.hjfile.cn/slide/201312/21983267836.jpg',
+
+                'http://eiga.k-img.com/images/person/83877/300x.jpg',
             ]
 
     queryFaceIds = {}
@@ -223,9 +223,7 @@ def search_category_fool(faceType):
 
 def search_category(faceType):
     datas = [
-                # 'https://cdn.mdpr.jp/photo/images/5e/fb5/w700c-ez_a3936914fbbf63b7c25a167e6d86d4439aad25000544dde4.jpg',
                 'http://www.takumi-jun.com/contents/upload-images/201458221929.jpg',
-                # 'http://www.子育て広場.com/wp-content/uploads/2014/01/107de2562eb1b8f6a5d7d3838945f05e.jpg',
                 'http://www.isetan-photo.co.jp/sp/shomei/images/recruit_slide04.jpg',
                 'http://asakusa-link.com/wp-content/uploads/2016/03/74e3b8ee00cb35feef211ebdc8c76796_s.jpg',
                 'http://img01.osakazine.net/usr/s/t/u/studiolib/bst_24135dd.jpg',
@@ -238,6 +236,7 @@ def search_category(faceType):
                 'http://image.space.rakuten.co.jp/d/strg/ctrl/9/4fa00c525815bfc2044ad03a63de4a8cfc57d5a9.66.2.9.2.jpeg',
                 'http://i2.w.yun.hjfile.cn/slide/201312/21983267836.jpg',
 
+                'http://eiga.k-img.com/images/person/83877/300x.jpg',
             ]
 
     queryFaceIds = {}
