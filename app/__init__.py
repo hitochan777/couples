@@ -69,6 +69,15 @@ def category():
     urls = search_category(type)
     return render_template('category.html', urls=urls)
 
+@app.route("/categorySearchFool")
+def category_fool():
+    type = request.args.get('type')
+    # if keyword is None or len(keyword) == 0:
+    #     return redirect("/", code=302)
+
+    urls = search_category_fool(type)
+    return render_template('category.html', urls=urls)
+
 @app.route("/fujiwaraSearch")
 def fujiwara():
     # keyword = request.args.get('search-text')
@@ -104,6 +113,79 @@ def search_fujiwara():
     for i in range(0,3):
         # print("query", i)
         queryFaceIds[i] = getFaceId(querys[i])
+
+    # print(queryFaceIds)
+
+    for i in range(0, len(datas)):
+        # print("data", i)
+        dataFaceIds.append(getFaceId(datas[i]))
+        idToUrl[dataFaceIds[i]] = datas[i]
+
+    # print(dataFaceIds)
+
+    list = {}
+
+    for i in range(0,3):
+        list[i] = getConfidenceList(queryFaceIds[i], dataFaceIds)
+
+    result = {}
+    for val in dataFaceIds:
+        # result[val] = minScore(list, val)
+        result[val] = aveScore(list, val)
+
+    urls = {}
+    # 降順にprint
+    for key, val in sorted(result.items(), key = lambda x:-x[1]):
+        # print(key, val)
+        # print('    url:', idToUrl[key])
+        urls[idToUrl[key]] = val
+
+    return urls
+
+
+
+def search_category_fool(faceType):
+    querys = {  'satou':[
+                    'http://netacube.com/wp-content/uploads/2016/10/ryo.jpg',
+                    'https://idobatakaigi0510.com/wp-content/uploads/2016/02/3e0d2eed.jpg',
+                    'https://news.walkerplus.com/article/89761/504110_615.jpg',
+                ],
+                'sio':[
+                    'http://tristone.co.jp/actors/img/sakaguchi350.jpg',
+                    'https://i0.wp.com/free-style-info.com/wp-content/uploads/2017/05/smallbigman_okada005-20170528.jpg?resize=300%2C300&ssl=1',
+                    'https://images-na.ssl-images-amazon.com/images/I/71pnv7I3O7L.jpg',
+                ],
+                'syouyu':[
+                    'http://foreverfllow.com/wp-content/uploads/2015/01/qql.jpg',
+                    'http://geinou11.com/wp-content/uploads/2017/06/osamu00-272x300.jpg',
+                    'http://yorozu-do.com/wp-content/uploads/2016/07/b5dd3950556d5db78568c73e642a0b63.jpg',
+                ],
+                'sousu':[
+                    'http://abehiroshi.la.coocan.jp/abe-top2-4.jpg',
+                    'https://pbs.twimg.com/media/CdWDqoQUsAA_0gF.jpg',
+                    'https://pbs.twimg.com/profile_images/561077710856806400/tdl6wF0h.jpeg',
+                ],
+            }
+
+    datas = [
+                # 'https://cdn.mdpr.jp/photo/images/5e/fb5/w700c-ez_a3936914fbbf63b7c25a167e6d86d4439aad25000544dde4.jpg',
+                'http://www.takumi-jun.com/contents/upload-images/201458221929.jpg',
+                # 'http://www.子育て広場.com/wp-content/uploads/2014/01/107de2562eb1b8f6a5d7d3838945f05e.jpg',
+                'http://www.isetan-photo.co.jp/sp/shomei/images/recruit_slide04.jpg',
+                'http://asakusa-link.com/wp-content/uploads/2016/03/74e3b8ee00cb35feef211ebdc8c76796_s.jpg',
+                'http://img01.osakazine.net/usr/s/t/u/studiolib/bst_24135dd.jpg',
+                'https://ranking.xgoo.jp/tool/images/column/2016/06/0610_11re.jpg',
+                'https://i2.wp.com/nekotopi.com/wp-content/uploads/2014/10/cm-abe.jpg',
+                'https://contents.oricon.co.jp/photo/img/0/259/detail/img660/0_84691200_1340881653.jpg',
+            ]
+
+    queryFaceIds = {}
+    dataFaceIds = []
+    idToUrl = {}
+
+    for i in range(0,3):
+        # print("query", i)
+        queryFaceIds[i] = getFaceId(querys[faceType][i])
 
     # print(queryFaceIds)
 
