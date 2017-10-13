@@ -54,7 +54,7 @@ def search():
     confidenceMap = getConfidenceList(keywordFaceId, userFaceIds)
     if len(confidenceMap) == 0:
         raise RuntimeError("Confidence map is empty")
-    
+
     LIMIT = 10
     sortedUserFaceIds = list(map(lambda item: item[0], sorted(confidenceMap.items(), reverse=True, key=operator.itemgetter(1))))[:LIMIT]
 
@@ -194,20 +194,20 @@ def search_category_fool(faceType):
             }
 
     datas = [
-                'http://www.takumi-jun.com/contents/upload-images/201458221929.jpg',
-                'http://www.isetan-photo.co.jp/sp/shomei/images/recruit_slide04.jpg',
-                'http://asakusa-link.com/wp-content/uploads/2016/03/74e3b8ee00cb35feef211ebdc8c76796_s.jpg',
-                'http://img01.osakazine.net/usr/s/t/u/studiolib/bst_24135dd.jpg',
-                'https://ranking.xgoo.jp/tool/images/column/2016/06/0610_11re.jpg',
-                'https://i2.wp.com/nekotopi.com/wp-content/uploads/2014/10/cm-abe.jpg',
-                'https://contents.oricon.co.jp/photo/img/0/259/detail/img660/0_84691200_1340881653.jpg',
+                # 'http://www.takumi-jun.com/contents/upload-images/201458221929.jpg',
+                # 'http://www.isetan-photo.co.jp/sp/shomei/images/recruit_slide04.jpg',
+                # 'http://asakusa-link.com/wp-content/uploads/2016/03/74e3b8ee00cb35feef211ebdc8c76796_s.jpg',
+                # 'http://img01.osakazine.net/usr/s/t/u/studiolib/bst_24135dd.jpg',
+                # 'https://ranking.xgoo.jp/tool/images/column/2016/06/0610_11re.jpg',
+                # 'https://i2.wp.com/nekotopi.com/wp-content/uploads/2014/10/cm-abe.jpg',
+                # 'https://contents.oricon.co.jp/photo/img/0/259/detail/img660/0_84691200_1340881653.jpg',
 
                 'https://pbs.twimg.com/media/CmrqLy_VMAITSo-.jpg',
                 'http://stat.news.ameba.jp/news_images/20151116/07/70/VD/j/o03820434ayanogo.jpg',
                 'http://image.space.rakuten.co.jp/d/strg/ctrl/9/4fa00c525815bfc2044ad03a63de4a8cfc57d5a9.66.2.9.2.jpeg',
                 'http://i2.w.yun.hjfile.cn/slide/201312/21983267836.jpg',
 
-                'http://eiga.k-img.com/images/person/83877/300x.jpg',
+                # 'http://eiga.k-img.com/images/person/83877/300x.jpg',
             ]
 
     queryFaceIds = {}
@@ -249,20 +249,20 @@ def search_category_fool(faceType):
 
 def search_category(faceType):
     datas = [
-                'http://www.takumi-jun.com/contents/upload-images/201458221929.jpg',
-                'http://www.isetan-photo.co.jp/sp/shomei/images/recruit_slide04.jpg',
-                'http://asakusa-link.com/wp-content/uploads/2016/03/74e3b8ee00cb35feef211ebdc8c76796_s.jpg',
-                'http://img01.osakazine.net/usr/s/t/u/studiolib/bst_24135dd.jpg',
-                'https://ranking.xgoo.jp/tool/images/column/2016/06/0610_11re.jpg',
-                'https://i2.wp.com/nekotopi.com/wp-content/uploads/2014/10/cm-abe.jpg',
-                'https://contents.oricon.co.jp/photo/img/0/259/detail/img660/0_84691200_1340881653.jpg',
+                # 'http://www.takumi-jun.com/contents/upload-images/201458221929.jpg',
+                # 'http://www.isetan-photo.co.jp/sp/shomei/images/recruit_slide04.jpg',
+                # 'http://asakusa-link.com/wp-content/uploads/2016/03/74e3b8ee00cb35feef211ebdc8c76796_s.jpg',
+                # 'http://img01.osakazine.net/usr/s/t/u/studiolib/bst_24135dd.jpg',
+                # 'https://ranking.xgoo.jp/tool/images/column/2016/06/0610_11re.jpg',
+                # 'https://i2.wp.com/nekotopi.com/wp-content/uploads/2014/10/cm-abe.jpg',
+                # 'https://contents.oricon.co.jp/photo/img/0/259/detail/img660/0_84691200_1340881653.jpg',
 
                 'https://pbs.twimg.com/media/CmrqLy_VMAITSo-.jpg',
                 'http://stat.news.ameba.jp/news_images/20151116/07/70/VD/j/o03820434ayanogo.jpg',
                 'http://image.space.rakuten.co.jp/d/strg/ctrl/9/4fa00c525815bfc2044ad03a63de4a8cfc57d5a9.66.2.9.2.jpeg',
                 'http://i2.w.yun.hjfile.cn/slide/201312/21983267836.jpg',
 
-                'http://eiga.k-img.com/images/person/83877/300x.jpg',
+                # 'http://eiga.k-img.com/images/person/83877/300x.jpg',
             ]
 
     queryFaceIds = {}
