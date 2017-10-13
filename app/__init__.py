@@ -5,6 +5,9 @@ from flask_uploads import UploadSet, IMAGES, configure_uploads
 import urllib
 import http
 import json
+import os
+import operator
+
 
 # Define the WSGI application object
 app = Flask(__name__)
@@ -31,15 +34,35 @@ def index():
 
 @app.route("/search", methods=['GET'])
 def search():
+    from app.component.face import getfaceid, getConfidenceList
+    from app.model.users import User # it is not really good to put import statement here! we need to refactor this part!
     keyword = request.args.get('search-text')
     if keyword is None or len(keyword) == 0:
         return redirect("/", code=302)
 
-    urls = search_images_by_keyword(keyword)
+    keywordUrl = search_image_by_keyword(keyword)
+    if keywordUrl is None:
+        raise NotImplemented # TODO
+
+    keywordFaceId = getfaceid(url=keywordUrl)
+
+    users = User.query.all()
+    userFaceIds = list(map(lambda u: getfaceid(path=os.path.join(app.config["UPLOADED_IMAGES_DEST"], u.image_filename)), users))
+    userDict = dict(zip(userFaceIds, users))
+    print(userDict)
+
+    confidenceMap = getConfidenceList(keywordFaceId, userFaceIds)
+    if len(confidenceMap) == 0:
+        raise RuntimeError("Confidence map is empty")
+    
+    LIMIT = 10
+    sortedUserFaceIds = list(map(lambda item: item[0], sorted(confidenceMap.items(), reverse=True, key=operator.itemgetter(1))))[:LIMIT]
+
+    urls = map(lambda fid: os.path.join(app.config["UPLOADED_IMAGES_URL"], userDict[fid].image_filename), sortedUserFaceIds)
 
     return render_template('search_result.html', urls=urls)
 
-def search_images_by_keyword(keyword):
+def search_image_by_keyword(keyword):
     headers = {
         'Content-Type': 'application/json',
         'Ocp-Apim-Subscription-Key': app.config["SEARCH_API_CONFIG"]["KEY"],
@@ -54,9 +77,12 @@ def search_images_by_keyword(keyword):
     response = conn.getresponse()
     raw_data = response.read()
     data = json.loads(raw_data)
-    urls = list(map(lambda image: image["contentUrl"], data["value"]))[:3]
+    urls = list(map(lambda image: image["contentUrl"], data["value"]))
     conn.close()
-    return urls
+    if len(urls) == 0:
+        return None
+
+    return urls[0]
 
 # ******************************************************
 

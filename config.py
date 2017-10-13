@@ -33,6 +33,14 @@ FACE_API_CONFIG = {
         "ROOT": {
             "HOST": "westus.api.cognitive.microsoft.com",
             "PATH": "/face/v1.0"
+        },
+        "DETECT": {
+            "HOST": "westus.api.cognitive.microsoft.com",
+            "PATH": "/face/v1.0/detect"
+        },
+        "FIND_SIMILAR": {
+            "HOST": "westus.api.cognitive.microsoft.com",
+            "PATH": "/face/v1.0/findsimilars"
         }
     }
 }
