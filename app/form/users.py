@@ -19,7 +19,7 @@ class AddUserForm(Form):
         ]
     )
     sex = RadioField(
-        'man',
+        '性別',
         [
             Required(message="性別は必須だよ〜ん")
         ],
@@ -38,4 +38,4 @@ class AddUserForm(Form):
             Required(message='パスワードは必須だよ〜ん')
         ]
     )
-    user_image = FileField('', validators=[FileRequired(), FileAllowed(images, '画像を選択して！')])
+    user_image = FileField('プロフィール写真', validators=[FileRequired(), FileAllowed(images, '画像を選択して！')])
