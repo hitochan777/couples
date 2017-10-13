@@ -5,8 +5,9 @@ from flask import Blueprint, request, render_template, \
 # Import the database object from the main app module
 from app import db
 
-# Import module models (i.e. User)
 from app.model.users import User
+from app.form.users import AddUserForm
+
 
 # Define the blueprint: 'auth', set its url prefix: app.url/auth
 mod_users = Blueprint('users', __name__, url_prefix='/users')
@@ -24,18 +25,18 @@ def index():
 
 @mod_users.route('/add', methods=["GET", "POST"])
 def add():
-    form = AddRecipeForm()
+    form = AddUserForm()
     if request.method == 'POST':
         if form.validate_on_submit():
             filename = images.save(request.files['user_image'])
             url = images.url(filename)
-            new_user = User(form.recipe_title.data, form.recipe_description.data, current_user.id, True, filename, url)
-            db.session.add(new_recipe)
-            db.session.commit()
+            new_user = User(form.name.data, form.email.data, form.sex.data, form.sex.password, filename, url)
+            # db.session.add(new_user)
+            # db.session.commit()
+            return redirect(url_for('recipes.user_recipes'))
         else:
-            flash_errors(form)
+            # flash_errors(form)
             flash("入力内容が間違っているため、ユーザー登録できませんでした。")
 
-        return redirect(url_for('recipes.user_recipes'))
 
-    return render_template("users/index.html", users=users) 
+    return render_template("users/add.html", form=form) 

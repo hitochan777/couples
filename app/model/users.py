@@ -3,7 +3,7 @@ from .base import Base
 
 class User(Base):
 
-    __tablename__ = 'user'
+    __tablename__ = 'users'
 
     # User Name
     name = db.Column(db.String(128),  nullable=False)
@@ -18,17 +18,17 @@ class User(Base):
 
     image_filename = db.Column(db.String, default=None, nullable=True)
 
-    # Authorisation Data: role & status
-    # role     = db.Column(db.SmallInteger, nullable=False)
-    # status   = db.Column(db.SmallInteger, nullable=False)
+    image_url = db.Column(db.String, default=None, nullable=True)
 
     # New instance instantiation procedure
-    def __init__(self, name, email, sex, password):
+    def __init__(self, name, email, sex, password, image_filename, image_url):
 
         self.name     = name
         self.sex      = sex
         self.email    = email
         self.password = password
+        self.image_filename = image_filename
+        self.image_url = image_url
 
     def __repr__(self):
         return '<User %r>' % (self.name)

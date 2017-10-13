@@ -16,6 +16,10 @@ app.config.from_object('config')
 # by modules and controllers
 db = SQLAlchemy(app)
 
+# Configure the image uploading via Flask-Uploads
+images = UploadSet('images', IMAGES)
+configure_uploads(app, images)
+
 # Sample HTTP error handling
 @app.errorhandler(404)
 def not_found(error):
@@ -51,9 +55,9 @@ def search_images_by_keyword(keyword):
     raw_data = response.read()
     data = json.loads(raw_data)
     urls = list(map(lambda image: image["contentUrl"], data["value"]))[:3] # 上位3つだけ使う
-    # print(urls)
     conn.close()
     return urls
+
 
 # Import a module / component using its blueprint handler variable (mod_auth)
 from app.controller.users import mod_users
@@ -66,7 +70,3 @@ app.register_blueprint(mod_users)
 # Build the database:
 # This will create the database file using SQLAlchemy
 db.create_all()
-
-# Configure the image uploading via Flask-Uploads
-images = UploadSet('images', IMAGES)
-configure_uploads(app, images)
