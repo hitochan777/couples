@@ -40,4 +40,4 @@ def add():
             flash("入力内容が間違っているため、ユーザー登録できませんでした。")
 
 
-    return render_template("users/add.html", form=form) 
+    return render_template("users/add.html", form=form)
