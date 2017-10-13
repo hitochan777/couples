@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <div class="row center">
+        {% for item in urls %}
+            <li><img src="{{ item }}"/></li>
+        {% endfor %}
+    </div>
+    <br><br>
+</div>
+{% endblock %}
+
