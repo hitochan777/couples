@@ -177,6 +177,11 @@ def search_category_fool(faceType):
                 'https://ranking.xgoo.jp/tool/images/column/2016/06/0610_11re.jpg',
                 'https://i2.wp.com/nekotopi.com/wp-content/uploads/2014/10/cm-abe.jpg',
                 'https://contents.oricon.co.jp/photo/img/0/259/detail/img660/0_84691200_1340881653.jpg',
+
+                'https://pbs.twimg.com/media/CmrqLy_VMAITSo-.jpg',
+                'http://stat.news.ameba.jp/news_images/20151116/07/70/VD/j/o03820434ayanogo.jpg',
+                'http://image.space.rakuten.co.jp/d/strg/ctrl/9/4fa00c525815bfc2044ad03a63de4a8cfc57d5a9.66.2.9.2.jpeg',
+                'http://i2.w.yun.hjfile.cn/slide/201312/21983267836.jpg',
             ]
 
     queryFaceIds = {}
@@ -227,6 +232,12 @@ def search_category(faceType):
                 'https://ranking.xgoo.jp/tool/images/column/2016/06/0610_11re.jpg',
                 'https://i2.wp.com/nekotopi.com/wp-content/uploads/2014/10/cm-abe.jpg',
                 'https://contents.oricon.co.jp/photo/img/0/259/detail/img660/0_84691200_1340881653.jpg',
+
+                'https://pbs.twimg.com/media/CmrqLy_VMAITSo-.jpg',
+                'http://stat.news.ameba.jp/news_images/20151116/07/70/VD/j/o03820434ayanogo.jpg',
+                'http://image.space.rakuten.co.jp/d/strg/ctrl/9/4fa00c525815bfc2044ad03a63de4a8cfc57d5a9.66.2.9.2.jpeg',
+                'http://i2.w.yun.hjfile.cn/slide/201312/21983267836.jpg',
+
             ]
 
     queryFaceIds = {}
